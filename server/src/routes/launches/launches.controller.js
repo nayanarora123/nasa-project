@@ -2,7 +2,7 @@ const {
     getAllLaunches, 
     addNewLaunch,
     getOneLaunch,
-    deleteLaunch
+    abortLaunch
 } = require('../../models/launches.model');
 
 function httpGetAllLaunches(req, res){
@@ -30,9 +30,9 @@ function httpAbortLaunch(req, res){
     let id = Number(req.params.id);
     let launch = getOneLaunch(id);
     if(!launch){
-        return res.status(400).json({error: 'launch not found'});
+        return res.status(404).json({error: 'launch not found'});
     }
-    deleteLaunch(id);
+    abortLaunch(id);
     return res.status(200).json(launch)
 }
 

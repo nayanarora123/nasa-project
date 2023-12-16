@@ -39,4 +39,8 @@ function getAllPlanets(){
 module.exports = {
     loadPlanetsData,
     getAllPlanets
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 2eee8de9cbace8da2f6178a686cba81da71f1473
