@@ -12,11 +12,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-<<<<<<< HEAD
-    "build": "BUILD_PATH=../server/public react-scripts build",
-=======
     "build": "set BUILD_PATH=../server/public&& react-scripts build",
->>>>>>> 2eee8de9cbace8da2f6178a686cba81da71f1473
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

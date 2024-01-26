@@ -2,14 +2,13 @@ const { parse } = require('csv-parse');
 const fs = require('fs');
 const path = require('path');
 const Planet = require('./planets.mongo');
-const planetsRouter = require('../routes/planets/planets.router');
 
 
 function isHabitablePlanet(planet) {
     return planet['koi_disposition'] === 'CONFIRMED'
-      && planet['koi_insol'] > 0.36 && planet['koi_insol'] < 1.11
-      && planet['koi_prad'] < 1.6;
-  }
+    && planet['koi_insol'] > 0.36 && planet['koi_insol'] < 1.11
+    && planet['koi_prad'] < 1.6;
+}
 
 function loadPlanetsData(){
     return new Promise((resolve, reject) => {
