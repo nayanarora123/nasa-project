@@ -51,7 +51,11 @@ function useLaunches(onSuccessSound, onAbortSound, onFailureSound) {
     const response = await httpAbortLaunch(id);
 
     // TODO: Set success based on response.
+<<<<<<< HEAD
+    const success = false;
+=======
     const success = response.ok;
+>>>>>>> 2eee8de9cbace8da2f6178a686cba81da71f1473
     if (success) {
       getLaunches();
       onAbortSound();
