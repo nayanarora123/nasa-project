@@ -6,18 +6,26 @@
   "scripts": {
     "start": "node src/server",
     "watch": "nodemon src/server",
-    "test": "npm run test --prefix server && npm run test --prefix client"
+    "test": "jest --detectOpenHandles",
+    "test-watch": "jest --watch",
+    "cluster": "pm2 start src/server.js -i max"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.6.7",
     "cors": "^2.8.5",
     "csv-parse": "^5.5.0",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "mongoose": "^8.1.1",
     "morgan": "^1.10.0",
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1",
+    "pm2": "^5.3.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^6.3.3"
   }
 }

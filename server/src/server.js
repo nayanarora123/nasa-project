@@ -1,26 +1,24 @@
+const http = require('http');
 require('dotenv').config();
 const app = require('./app');
 const { loadPlanetsData } = require('./models/planets.model');
-const mongoose = require('mongoose')
+const { loadLaunchesData } = require('./models/launches.model');
+const { connectMongoose } = require('./services/mongo');
 
-mongoose.connection.on('open', () => {
-    console.log(`MongoDB connected successfully!`);
-})
+const PORT = process.env.PORT || 8000;
 
-mongoose.connection.on('error', err => {
-    console.log(`Mongoose error: ${err}`);
-})
+const server = http.createServer(app);
 
 async function startServer(){
-    await mongoose.connect(process.env.MONGO_URL);
+    await connectMongoose();
     await loadPlanetsData();
-    app.listen(process.env.PORT || 8000, () => {
+    await loadLaunchesData();
+    server.listen(PORT, () => {
         console.log(`server started on ${process.env.PORT}`);
     })
 }
 
 startServer();
-
 
 /**
  * Version 6 and above does not need this needed parameters
