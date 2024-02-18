@@ -4,6 +4,9 @@ const {
     connectMongoose, 
     disconnectMongoose 
 } = require('../../services/mongo');
+const {
+    loadPlanetsData 
+} = require('../../models/planets.model');
 
 /** API TESTS */
 
@@ -11,6 +14,7 @@ describe('Launches API test', () => {
 
     beforeAll(async() => {
         await connectMongoose();
+        await loadPlanetsData();
     });
 
     afterAll(async() => {
